@@ -1,0 +1,29 @@
+{
+  "name": "city-explorer-ap",
+  "version": "1.0.0",
+  "description": "class07 ",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QaisAlshorman/city-explorer-ap.git"
+  },
+  "keywords": [
+    "qaishorman20@gmail.com"
+  ],
+  "author": "QaisAlshorman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QaisAlshorman/city-explorer-ap/issues"
+  },
+  "homepage": "https://github.com/QaisAlshorman/city-explorer-ap#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {}
+}

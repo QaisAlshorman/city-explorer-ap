@@ -64,7 +64,7 @@ server.get('/movies', getMoviesHandler)
     let cityName = req.query.cityName;
     let key = process.env.MOVIE_API_KEY;
     
-    let url=`https://api.themoviedb.org/3/search/movie?api_key=key=${key}&query=${cityName}&page=1`
+    let url=`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${cityName}&page=1`
     
     axios.get(url).then(result =>{
         const movieArray = result.data.results.map(item=>{

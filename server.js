@@ -16,7 +16,7 @@ server.get('/getCity', cityHandler);
 
 // localhost:3060/
 function rootHandler(req, res) {
-  console.log('hello')
+  console.log('hello');
   res.send('Hello you are in the root ');
 }
 // localhost:3060/getCity?cityLan=47.6038321&cityLon=-122.3300624

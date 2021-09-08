@@ -22,7 +22,7 @@ function rootHandler(req, res) {
 function cityHandler(req, res) {
   let lan = req.query.cityLan;
   let lon = req.query.cityLon;
-  let getCity = weatherData.find((item)=>{
+  let getCity = weatherData.data.find((item)=>{
  
     if (item.lat === lan && item.lon === lon)
      return item.city_name;
@@ -41,8 +41,8 @@ function wetherHandler(req, res){
   let lat = req.query.lat;
   let lon = req.query.lon;
   let key=process.env.WEATHER_API_KEY;
-  let weatherUrl =`http://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${key}`
   
+  let weatherUrl =`http://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${key}`
 
 
   axios.get(weatherUrl).then(result =>{
@@ -67,8 +67,8 @@ server.get('/movies', getMoviesHandler)
   function  getMoviesHandler(req, res) {
     let cityName = req.query.cityName;
     let key = process.env.MOVIE_API_KEY;
-    
-    let url=`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${cityName}&page=1`
+    let url =`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${cityName}&page=1`
+   
     
     axios.get(url).then(result =>{
         const movieArray = result.data.results.map(item=>{

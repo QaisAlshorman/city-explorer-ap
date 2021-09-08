@@ -1,7 +1,7 @@
 'use strict';
 const express = require('express');
 const server = express();
-// const weatherData = require('./data/weather.json');
+const weatherData = require('./data/weather.json');
 const axios = require('axios');
 const cors = require('cors');
 server.use(cors());
@@ -10,28 +10,29 @@ require('dotenv').config();
 const PORT = process.env.PORT || 3060;
 // let arr = [];
 //localhost:3060/
-// server.get('/', rootHandler);
-//localhost:3060/getCity?cityLan=48.8588897&cityLon=2.3200410217200766
-// server.get('/getCity', cityHandler);
+server.get('/', rootHandler);
+// localhost:3060/getCity?cityLan=48.8588897&cityLon=2.3200410217200766
+server.get('/getCity', cityHandler);
 
-//localhost:3060/
-// function rootHandler(req, res) {
-//   res.send('Hello you are in the root ');
-// }
-//localhost:3060/getCity?cityLan=47.6038321&cityLon=-122.3300624
-// function cityHandler(req, res) {
-//   let lan = req.query.cityLan;
-//   let lon = req.query.cityLon;
-//   let getCity = weatherData.find((item) => {
+// localhost:3060/
+function rootHandler(req, res) {
+  console.log('hello');
+  res.send('Hello you are in the root ');
+}
+// localhost:3060/getCity?cityLan=47.6038321&cityLon=-122.3300624
+function cityHandler(req, res) {
+  let lan = req.query.cityLan;
+  let lon = req.query.cityLon;
+  let getCity = weatherData.find((item) => {
 
-//     if (item.lat === lan && item.lon === lon)
-//       return item.city_name;
+    if (item.lat === lan && item.lon === lon)
+      return item.city_name;
 
 
-//   });
-//   // console.log(getCity);
-//   res.send(getCity);
-// }
+  });
+  // console.log(getCity);
+  res.send(getCity);
+}
 
 // http://localhost:3060/forcast?lat=47.6&cityLon=-122.33
 server.get('/forcast', wetherHandler);
@@ -94,7 +95,7 @@ class Movie {
 }
 //localhost:3060 .....
 server.get('*', (req, res) => {
-  res.status(500).send('sorry, this page not found');
+  res.send('sorry, this page not found');
 });
 server.listen(process.env.PORT || 3060, () => {
   console.log(`Listening on PORT ${PORT}`);

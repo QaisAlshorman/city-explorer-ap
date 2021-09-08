@@ -16,6 +16,7 @@ server.get('/getCity', cityHandler);
 
 // localhost:3060/
 function rootHandler(req, res) {
+  console.log('hello')
   res.send('Hello you are in the root ');
 }
 // localhost:3060/getCity?cityLan=47.6038321&cityLon=-122.3300624
@@ -94,7 +95,7 @@ class Movie {
 }
 //localhost:3060 .....
 server.get('*', (req, res) => {
-  res.status(500).send('sorry, this page not found');
+  res.send('sorry, this page not found');
 });
 server.listen(process.env.PORT || 3060, () => {
   console.log(`Listening on PORT ${PORT}`);

@@ -1,4 +1,4 @@
-const axios = require("axios");
+const axios = require('axios');
 module.exports = wetherHandler;
 
 function wetherHandler(req, res) {
